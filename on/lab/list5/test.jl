@@ -1,3 +1,6 @@
+# Ewa Kasprzak 272356
+# plik z implementacją
+
 include("blocksys.jl")
 include("matrixgen.jl")
 using .blocksys
@@ -5,26 +8,111 @@ using .matrixgen
 using LinearAlgebra
 using TimerOutputs
 
-function gauss_basic_timed(A::A_matrix, b::Vector{Float64})
-    t = TimerOutput()
-    @timeit t "gauss_basic" begin
+function gauss_basic_time(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    time = @elapsed begin
         gauss_basic(A, b)
-        x = solve_gauss(A, b)
+        x = solve_up(A, b)
     end
 
-    println(t)
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", time)
+    end
 
     return x
 end
 
-function gauss_with_pivot_timed(A::A_matrix, b::Vector{Float64})
-    t = TimerOutput()
-    @timeit t "gauss_with_pivot" begin
-        gauss_with_pivot(A, b)
-        x = solve_gauss(A, b)
+function gauss_basic_alloc(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    alloc = @allocated begin
+        gauss_basic(A, b)
+        x = solve_up(A, b)
     end
 
-    println(t)
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", alloc)
+    end
+
+    return x
+end
+
+
+function gauss_with_pivot_time(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    time = @elapsed begin
+        gauss_with_pivot(A, b)
+        x = solve_up(A, b)
+    end
+
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", time)
+    end
+
+    return x
+end
+
+function gauss_with_pivot_alloc(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    alloc = @allocated begin
+        gauss_with_pivot(A, b)
+        x = solve_up(A, b)
+    end
+
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", alloc)
+    end
+
+    return x
+end
+
+function lu_solve_basic_time(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    time = @elapsed begin
+        lu_decomposition_basic(A)
+        y = solve_down(A, b)
+        x = solve_up(A, y)
+    end
+    
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", time)
+    end
+    
+    return x
+end
+
+function lu_solve_basic_alloc(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    alloc = @allocated begin
+        lu_decomposition_basic(A)
+        y = solve_down(A, b)
+        x = solve_up(A, y)
+    end
+    
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", alloc)
+    end
+    
+    return x
+end
+
+function lu_solve_pivot_time(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    time = @elapsed begin
+        perm = lu_decomposition_with_pivot(A)
+        y = solve_down(A, b[perm])
+        x = solve_up(A, y)
+    end
+    
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", time)
+    end
+
+    return x
+end
+
+function lu_solve_pivot_alloc(A::A_matrix, b::Vector{Float64}, file_to_save::String)
+    alloc = @allocated begin
+        perm = lu_decomposition_with_pivot(A)
+        y = solve_down(A, b[perm])
+        x = solve_up(A, y)
+    end
+    
+    open(file_to_save, "a") do file
+        println(file, A.n, " ", alloc)
+    end
 
     return x
 end
@@ -35,24 +123,6 @@ function print_matrix(A::Matrix{Float64})
             print(A[i, j], " ")
         end
         println()
-    end
-end
-
-function test_lookup_down(A::A_matrix)
-    for k in 1:A.n
-        lookup_down = elems_to_lookup_down(A, k)
-        println("lookup_down: ", lookup_down)
-    end
-end
-
-function test_lookup_right(A::A_matrix)
-    for k in 1:A.n
-        lookup_down = elems_to_lookup_down(A, k)
-        for i in 1:lookup_down
-            j = k+i
-            lookup_right, c_id = lookup_cells_right(A, k, j)
-            println("($j, $k) ", lookup_right, " ", c_id)
-        end
     end
 end
 
@@ -88,33 +158,75 @@ function read_b_from_file(filename::String)
     end
 end
 
-filename_matrix = "./dane/500tys/A.txt"
-filename_b = "./dane/500tys/b.txt"
-# n = 50000
-# l = 2000
-# blockmat(n, l, 10.0, filename)
+function save_x_to_file(filename::String, x::Vector{Float64}, error::Float64)
+    open(filename, "w") do file
+        if error != -1
+            println(file, error)
+        end
+        for i in 1:length(x)
+            println(file, x[i])
+        end
+    end
+end
 
-# A_exact = read_matrix_from_file_demo(filename_matrix)
-# b_exact = read_b_from_file(filename_b)
-# x_exact = A_exact \ b_exact
+function test_algorithms(filename_m::String, filename_b::String, n::Int, l::Int, cond::Float64)
+    blockmat(n, l, cond, filename_m)
 
-A = read_matrix_from_file(filename_matrix)
-b = read_b_from_file(filename_b)
-A1 = deepcopy(A)
-b1 = deepcopy(b)
+    size_A = @allocated A_exact = read_matrix_from_file_demo(filename_m)
+    size_A_matrix = @allocated A = read_matrix_from_file(filename_m)
 
-x = gauss_basic_timed(A, b)
-x1 = gauss_with_pivot_timed(A1, b1)
+    open("alloc_matrix_bigger.txt", "a") do file
+        println(file, n, " ", size_A_matrix)
+    end
 
-# error_basic = norm(x_exact - x) / norm(x_exact)
-# error_pivot = norm(x_exact - x1) / norm(x_exact)
+    A1 = deepcopy(A)
+    A2 = deepcopy(A)
+    A3 = deepcopy(A)
 
-# println("Error basic: ", error_basic)
-# println("Error pivot: ", error_pivot)
+    if (filename_b == "")
+        b_exact = A_exact * ones(Float64, n)
+        b = A_mul_x(A)
+        b1 = deepcopy(b)
+        b2 = deepcopy(b)
+        b3 = deepcopy(b)
+    else
+        b_exact = read_b_from_file(filename_b)
+        b = read_b_from_file(filename_b)
+        b1 = read_b_from_file(filename_b)
+        b2 = read_b_from_file(filename_b)
+        b3 = read_b_from_file(filename_b)
+    end
 
-println()
-println()
-error = norm(x - x1) / norm(x)
-println("-------------------------")
-println()
-println("Error: ", error)
+    t = @elapsed x_exact = A_exact \ b_exact
+    open("time_matrix.txt", "a") do file
+        println(file, n, " ", t)
+    end
+    x = gauss_basic_time(A, b, "./time_gauss_bigger.txt")
+    x1 = gauss_with_pivot_time(A1, b1, "./time_gauss_pivot_bigger.txt")
+    x2 = lu_solve_basic_time(A2, b2, "./time_lu_bigger.txt")
+    x3 = lu_solve_pivot_time(A3, b3, "./time_lu_pivot_bigger.txt")
+
+    if (filename_b != "")
+        save_x_to_file("./wyniki/gauss/x/b_$n.txt", x, -1)
+        save_x_to_file("./wyniki/gauss_pivot/x/b_$n.txt", x1, -1)
+        save_x_to_file("./wyniki/lu/x/b_$n.txt", x2, -1)
+        save_x_to_file("./wyniki/lu_pivot/x/b_$n.txt", x3, -1)
+    else
+        error = norm(x_exact - x) / norm(x_exact)
+        error1 = norm(x_exact - x1) / norm(x_exact)
+        error2 = norm(x_exact - x2) / norm(x_exact)
+        error3 = norm(x_exact - x3) / norm(x_exact)
+
+        save_x_to_file("./wyniki/gauss/x/wb_$n.txt", x, error)
+        save_x_to_file("./wyniki/gauss_pivot/x/wb_$n.txt", x1, error1)
+        save_x_to_file("./wyniki/lu/x/wb_$n.txt", x2, error2)
+        save_x_to_file("./wyniki/lu_pivot/x/wb_$n.txt", x3, error3)
+    end
+end
+
+for size in 50000:50000:1000000
+    for k in 1:10
+        test_algorithms("matrix.txt", "", size, 4, 10.0)
+    end
+end
+

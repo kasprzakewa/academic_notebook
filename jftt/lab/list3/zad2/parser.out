@@ -1,0 +1,435 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> input
+Rule 1     input -> input line
+Rule 2     input -> <empty>
+Rule 3     line -> expression
+Rule 4     expression -> expression PLUS expression
+Rule 5     expression -> expression MINUS expression
+Rule 6     expression -> expression MUL expression
+Rule 7     expression -> expression DIV expression
+Rule 8     expression -> expression POW pow_expression
+Rule 9     expression -> NUMBER
+Rule 10    expression -> MINUS NUMBER
+Rule 11    pow_expression -> MINUS NUMBER
+Rule 12    pow_expression -> NUMBER
+Rule 13    expression -> OPBRA expression CLBRA
+
+Terminals, with rules where they appear
+
+CLBRA                : 13
+DIV                  : 7
+MINUS                : 5 10 11
+MUL                  : 6
+NUMBER               : 9 10 11 12
+OPBRA                : 13
+PLUS                 : 4
+POW                  : 8
+error                : 
+
+Nonterminals, with rules where they appear
+
+expression           : 3 4 4 5 5 6 6 7 7 8 13
+input                : 1 0
+line                 : 1
+pow_expression       : 8
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . input
+    (1) input -> . input line
+    (2) input -> .
+
+    NUMBER          reduce using rule 2 (input -> .)
+    MINUS           reduce using rule 2 (input -> .)
+    OPBRA           reduce using rule 2 (input -> .)
+    $end            reduce using rule 2 (input -> .)
+
+    input                          shift and go to state 1
+
+state 1
+
+    (0) S' -> input .
+    (1) input -> input . line
+    (3) line -> . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    line                           shift and go to state 2
+    expression                     shift and go to state 3
+
+state 2
+
+    (1) input -> input line .
+
+    NUMBER          reduce using rule 1 (input -> input line .)
+    MINUS           reduce using rule 1 (input -> input line .)
+    OPBRA           reduce using rule 1 (input -> input line .)
+    $end            reduce using rule 1 (input -> input line .)
+
+
+state 3
+
+    (3) line -> expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+  ! shift/reduce conflict for MINUS resolved as shift
+    NUMBER          reduce using rule 3 (line -> expression .)
+    OPBRA           reduce using rule 3 (line -> expression .)
+    $end            reduce using rule 3 (line -> expression .)
+    PLUS            shift and go to state 7
+    MINUS           shift and go to state 8
+    MUL             shift and go to state 9
+    DIV             shift and go to state 10
+    POW             shift and go to state 11
+
+  ! MINUS           [ reduce using rule 3 (line -> expression .) ]
+
+
+state 4
+
+    (10) expression -> MINUS . NUMBER
+
+    NUMBER          shift and go to state 12
+
+
+state 5
+
+    (9) expression -> NUMBER .
+
+    PLUS            reduce using rule 9 (expression -> NUMBER .)
+    MINUS           reduce using rule 9 (expression -> NUMBER .)
+    MUL             reduce using rule 9 (expression -> NUMBER .)
+    DIV             reduce using rule 9 (expression -> NUMBER .)
+    POW             reduce using rule 9 (expression -> NUMBER .)
+    NUMBER          reduce using rule 9 (expression -> NUMBER .)
+    OPBRA           reduce using rule 9 (expression -> NUMBER .)
+    $end            reduce using rule 9 (expression -> NUMBER .)
+    CLBRA           reduce using rule 9 (expression -> NUMBER .)
+
+
+state 6
+
+    (13) expression -> OPBRA . expression CLBRA
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    expression                     shift and go to state 13
+
+state 7
+
+    (4) expression -> expression PLUS . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    expression                     shift and go to state 14
+
+state 8
+
+    (5) expression -> expression MINUS . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    expression                     shift and go to state 15
+
+state 9
+
+    (6) expression -> expression MUL . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    expression                     shift and go to state 16
+
+state 10
+
+    (7) expression -> expression DIV . expression
+    (4) expression -> . expression PLUS expression
+    (5) expression -> . expression MINUS expression
+    (6) expression -> . expression MUL expression
+    (7) expression -> . expression DIV expression
+    (8) expression -> . expression POW pow_expression
+    (9) expression -> . NUMBER
+    (10) expression -> . MINUS NUMBER
+    (13) expression -> . OPBRA expression CLBRA
+
+    NUMBER          shift and go to state 5
+    MINUS           shift and go to state 4
+    OPBRA           shift and go to state 6
+
+    expression                     shift and go to state 17
+
+state 11
+
+    (8) expression -> expression POW . pow_expression
+    (11) pow_expression -> . MINUS NUMBER
+    (12) pow_expression -> . NUMBER
+
+    MINUS           shift and go to state 19
+    NUMBER          shift and go to state 20
+
+    pow_expression                 shift and go to state 18
+
+state 12
+
+    (10) expression -> MINUS NUMBER .
+
+    PLUS            reduce using rule 10 (expression -> MINUS NUMBER .)
+    MINUS           reduce using rule 10 (expression -> MINUS NUMBER .)
+    MUL             reduce using rule 10 (expression -> MINUS NUMBER .)
+    DIV             reduce using rule 10 (expression -> MINUS NUMBER .)
+    POW             reduce using rule 10 (expression -> MINUS NUMBER .)
+    NUMBER          reduce using rule 10 (expression -> MINUS NUMBER .)
+    OPBRA           reduce using rule 10 (expression -> MINUS NUMBER .)
+    $end            reduce using rule 10 (expression -> MINUS NUMBER .)
+    CLBRA           reduce using rule 10 (expression -> MINUS NUMBER .)
+
+
+state 13
+
+    (13) expression -> OPBRA expression . CLBRA
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+    CLBRA           shift and go to state 21
+    PLUS            shift and go to state 7
+    MINUS           shift and go to state 8
+    MUL             shift and go to state 9
+    DIV             shift and go to state 10
+    POW             shift and go to state 11
+
+
+state 14
+
+    (4) expression -> expression PLUS expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+    PLUS            reduce using rule 4 (expression -> expression PLUS expression .)
+    MINUS           reduce using rule 4 (expression -> expression PLUS expression .)
+    NUMBER          reduce using rule 4 (expression -> expression PLUS expression .)
+    OPBRA           reduce using rule 4 (expression -> expression PLUS expression .)
+    $end            reduce using rule 4 (expression -> expression PLUS expression .)
+    CLBRA           reduce using rule 4 (expression -> expression PLUS expression .)
+    MUL             shift and go to state 9
+    DIV             shift and go to state 10
+    POW             shift and go to state 11
+
+  ! MUL             [ reduce using rule 4 (expression -> expression PLUS expression .) ]
+  ! DIV             [ reduce using rule 4 (expression -> expression PLUS expression .) ]
+  ! POW             [ reduce using rule 4 (expression -> expression PLUS expression .) ]
+  ! PLUS            [ shift and go to state 7 ]
+  ! MINUS           [ shift and go to state 8 ]
+
+
+state 15
+
+    (5) expression -> expression MINUS expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+    PLUS            reduce using rule 5 (expression -> expression MINUS expression .)
+    MINUS           reduce using rule 5 (expression -> expression MINUS expression .)
+    NUMBER          reduce using rule 5 (expression -> expression MINUS expression .)
+    OPBRA           reduce using rule 5 (expression -> expression MINUS expression .)
+    $end            reduce using rule 5 (expression -> expression MINUS expression .)
+    CLBRA           reduce using rule 5 (expression -> expression MINUS expression .)
+    MUL             shift and go to state 9
+    DIV             shift and go to state 10
+    POW             shift and go to state 11
+
+  ! MUL             [ reduce using rule 5 (expression -> expression MINUS expression .) ]
+  ! DIV             [ reduce using rule 5 (expression -> expression MINUS expression .) ]
+  ! POW             [ reduce using rule 5 (expression -> expression MINUS expression .) ]
+  ! PLUS            [ shift and go to state 7 ]
+  ! MINUS           [ shift and go to state 8 ]
+
+
+state 16
+
+    (6) expression -> expression MUL expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+    PLUS            reduce using rule 6 (expression -> expression MUL expression .)
+    MINUS           reduce using rule 6 (expression -> expression MUL expression .)
+    MUL             reduce using rule 6 (expression -> expression MUL expression .)
+    DIV             reduce using rule 6 (expression -> expression MUL expression .)
+    NUMBER          reduce using rule 6 (expression -> expression MUL expression .)
+    OPBRA           reduce using rule 6 (expression -> expression MUL expression .)
+    $end            reduce using rule 6 (expression -> expression MUL expression .)
+    CLBRA           reduce using rule 6 (expression -> expression MUL expression .)
+    POW             shift and go to state 11
+
+  ! POW             [ reduce using rule 6 (expression -> expression MUL expression .) ]
+  ! PLUS            [ shift and go to state 7 ]
+  ! MINUS           [ shift and go to state 8 ]
+  ! MUL             [ shift and go to state 9 ]
+  ! DIV             [ shift and go to state 10 ]
+
+
+state 17
+
+    (7) expression -> expression DIV expression .
+    (4) expression -> expression . PLUS expression
+    (5) expression -> expression . MINUS expression
+    (6) expression -> expression . MUL expression
+    (7) expression -> expression . DIV expression
+    (8) expression -> expression . POW pow_expression
+
+    PLUS            reduce using rule 7 (expression -> expression DIV expression .)
+    MINUS           reduce using rule 7 (expression -> expression DIV expression .)
+    MUL             reduce using rule 7 (expression -> expression DIV expression .)
+    DIV             reduce using rule 7 (expression -> expression DIV expression .)
+    NUMBER          reduce using rule 7 (expression -> expression DIV expression .)
+    OPBRA           reduce using rule 7 (expression -> expression DIV expression .)
+    $end            reduce using rule 7 (expression -> expression DIV expression .)
+    CLBRA           reduce using rule 7 (expression -> expression DIV expression .)
+    POW             shift and go to state 11
+
+  ! POW             [ reduce using rule 7 (expression -> expression DIV expression .) ]
+  ! PLUS            [ shift and go to state 7 ]
+  ! MINUS           [ shift and go to state 8 ]
+  ! MUL             [ shift and go to state 9 ]
+  ! DIV             [ shift and go to state 10 ]
+
+
+state 18
+
+    (8) expression -> expression POW pow_expression .
+
+    PLUS            reduce using rule 8 (expression -> expression POW pow_expression .)
+    MINUS           reduce using rule 8 (expression -> expression POW pow_expression .)
+    MUL             reduce using rule 8 (expression -> expression POW pow_expression .)
+    DIV             reduce using rule 8 (expression -> expression POW pow_expression .)
+    POW             reduce using rule 8 (expression -> expression POW pow_expression .)
+    NUMBER          reduce using rule 8 (expression -> expression POW pow_expression .)
+    OPBRA           reduce using rule 8 (expression -> expression POW pow_expression .)
+    $end            reduce using rule 8 (expression -> expression POW pow_expression .)
+    CLBRA           reduce using rule 8 (expression -> expression POW pow_expression .)
+
+
+state 19
+
+    (11) pow_expression -> MINUS . NUMBER
+
+    NUMBER          shift and go to state 22
+
+
+state 20
+
+    (12) pow_expression -> NUMBER .
+
+    PLUS            reduce using rule 12 (pow_expression -> NUMBER .)
+    MINUS           reduce using rule 12 (pow_expression -> NUMBER .)
+    MUL             reduce using rule 12 (pow_expression -> NUMBER .)
+    DIV             reduce using rule 12 (pow_expression -> NUMBER .)
+    POW             reduce using rule 12 (pow_expression -> NUMBER .)
+    NUMBER          reduce using rule 12 (pow_expression -> NUMBER .)
+    OPBRA           reduce using rule 12 (pow_expression -> NUMBER .)
+    $end            reduce using rule 12 (pow_expression -> NUMBER .)
+    CLBRA           reduce using rule 12 (pow_expression -> NUMBER .)
+
+
+state 21
+
+    (13) expression -> OPBRA expression CLBRA .
+
+    PLUS            reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    MINUS           reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    MUL             reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    DIV             reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    POW             reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    NUMBER          reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    OPBRA           reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    $end            reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+    CLBRA           reduce using rule 13 (expression -> OPBRA expression CLBRA .)
+
+
+state 22
+
+    (11) pow_expression -> MINUS NUMBER .
+
+    PLUS            reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    MINUS           reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    MUL             reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    DIV             reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    POW             reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    NUMBER          reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    OPBRA           reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    $end            reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+    CLBRA           reduce using rule 11 (pow_expression -> MINUS NUMBER .)
+
+WARNING: 
+WARNING: Conflicts:
+WARNING: 
+WARNING: shift/reduce conflict for MINUS in state 3 resolved as shift
