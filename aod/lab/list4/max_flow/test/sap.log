@@ -1,0 +1,361 @@
+3 5.891e-6 5
+13 0.00612597 2038
+6 5.8905e-5 42
+7 0.000170861 96
+7 0.000123478 81
+7 0.000114882 104
+7 0.000138037 84
+7 0.000133668 126
+7 7.1779e-5 53
+7 0.000109913 107
+7 0.000116966 110
+7 8.1117e-5 70
+7 0.000117738 104
+7 0.000117007 95
+7 0.00012891 121
+7 9.0615e-5 74
+7 0.000128719 94
+7 0.000105504 101
+7 0.000125954 106
+7 0.000104752 90
+7 9.792e-5 84
+7 0.000111085 101
+7 0.000151163 110
+7 0.00011865 117
+7 0.000119021 94
+4 1.2173e-5 12
+4 1.042e-5 12
+4 1.2614e-5 11
+4 1.1822e-5 11
+1 1.493e-6 1
+1 1.533e-6 1
+1 1.734e-6 1
+1 1.924e-6 1
+1 1.503e-6 1
+1 1.603e-6 1
+1 1.794e-6 1
+1 1.253e-6 1
+1 2.455e-6 1
+1 1.763e-6 1
+1 4.349e-6 1
+1 5.36e-6 1
+1 3.947e-6 1
+1 4.94e-6 1
+1 4.058e-6 1
+1 4.629e-6 1
+1 4.098e-6 1
+1 4.889e-6 1
+
+[54890] signal 2: Interrupt
+in expression starting at /home/ewa/Desktop/STUDIA/5sem/academic_notebook/aod/lab/list4/max_flow/test.jl:236
+_ZN4llvm8DenseMapIPNS_4PassENS_11SmallPtrSetIS2_Lj8EEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_S4_EEE4growEj at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm17PMTopLevelManager11setLastUserENS_8ArrayRefIPNS_4PassEEES3_ at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm13PMDataManager3addEPNS_4PassEb at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm17PMTopLevelManager12schedulePassEPNS_4PassE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm16TargetPassConfig7addPassEPNS_4PassE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm16TargetPassConfig16addMachinePassesEv at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZL23addPassesToGenerateCodeRN4llvm17LLVMTargetMachineERNS_6legacy15PassManagerBaseEbRNS_28MachineModuleInfoWrapperPassE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm17LLVMTargetMachine17addPassesToEmitMCERNS_6legacy15PassManagerBaseERPNS_9MCContextERNS_17raw_pwrite_streamEb at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc14SimpleCompilerclERNS_6ModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+operator() at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jitlayers.cpp:1380
+_ZN4llvm3orc14IRCompileLayer4emitESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EENS0_16ThreadSafeModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16IRTransformLayer4emitESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EENS0_16ThreadSafeModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16IRTransformLayer4emitESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EENS0_16ThreadSafeModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16IRTransformLayer4emitESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EENS0_16ThreadSafeModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16IRTransformLayer4emitESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EENS0_16ThreadSafeModuleE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc31BasicIRLayerMaterializationUnit11materializeESt10unique_ptrINS0_29MaterializationResponsibilityESt14default_deleteIS3_EE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc19MaterializationTask3runEv at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm6detail18UniqueFunctionBaseIvJSt10unique_ptrINS_3orc4TaskESt14default_deleteIS4_EEEE8CallImplIPFvS7_EEEvPvRS7_ at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16ExecutionSession22dispatchOutstandingMUsEv at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16ExecutionSession17OL_completeLookupESt10unique_ptrINS0_21InProgressLookupStateESt14default_deleteIS3_EESt10shared_ptrINS0_23AsynchronousSymbolQueryEESt8functionIFvRKNS_8DenseMapIPNS0_8JITDylibENS_8DenseSetINS0_15SymbolStringPtrENS_12DenseMapInfoISF_vEEEENSG_ISD_vEENS_6detail12DenseMapPairISD_SI_EEEEEE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc25InProgressFullLookupState8completeESt10unique_ptrINS0_21InProgressLookupStateESt14default_deleteIS3_EE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16ExecutionSession19OL_applyQueryPhase1ESt10unique_ptrINS0_21InProgressLookupStateESt14default_deleteIS3_EENS_5ErrorE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16ExecutionSession6lookupENS0_10LookupKindERKSt6vectorISt4pairIPNS0_8JITDylibENS0_19JITDylibLookupFlagsEESaIS8_EENS0_15SymbolLookupSetENS0_11SymbolStateENS_15unique_functionIFvNS_8ExpectedINS_8DenseMapINS0_15SymbolStringPtrENS_18JITEvaluatedSymbolENS_12DenseMapInfoISI_vEENS_6detail12DenseMapPairISI_SJ_EEEEEEEEESt8functionIFvRKNSH_IS6_NS_8DenseSetISI_SL_EENSK_IS6_vEENSN_IS6_SV_EEEEEE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+_ZN4llvm3orc16ExecutionSession6lookupERKSt6vectorISt4pairIPNS0_8JITDylibENS0_19JITDylibLookupFlagsEESaIS7_EENS0_15SymbolLookupSetENS0_10LookupKindENS0_11SymbolStateESt8functionIFvRKNS_8DenseMapIS5_NS_8DenseSetINS0_15SymbolStringPtrENS_12DenseMapInfoISI_vEEEENSJ_IS5_vEENS_6detail12DenseMapPairIS5_SL_EEEEEE at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/bin/../lib/julia/libLLVM-16jl.so (unknown line)
+addModule at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jitlayers.cpp:1867
+_jl_compile_codeinst at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jitlayers.cpp:228
+jl_generate_fptr_impl at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jitlayers.cpp:528
+jl_compile_method_internal at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/gf.c:2536 [inlined]
+jl_compile_method_internal at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/gf.c:2423
+_jl_invoke at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/gf.c:2940 [inlined]
+ijl_apply_generic at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/gf.c:3125
+RedirectStdStream at ./stream.jl:1466
+#13 at /home/ewa/Desktop/STUDIA/5sem/academic_notebook/aod/lab/list4/max_flow/test.jl:133 [inlined]
+#open#463 at ./io.jl:410
+open at ./io.jl:407 [inlined]
+test_max_flow_sap at /home/ewa/Desktop/STUDIA/5sem/academic_notebook/aod/lab/list4/max_flow/test.jl:132
+unknown function (ip: 0x7460b5a1cd92)
+main at /home/ewa/Desktop/STUDIA/5sem/academic_notebook/aod/lab/list4/max_flow/test.jl:233
+unknown function (ip: 0x7460b5a017cf)
+jl_apply at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/julia.h:2157 [inlined]
+do_call at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/interpreter.c:126
+eval_value at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/interpreter.c:223
+eval_stmt_value at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/interpreter.c:174 [inlined]
+eval_body at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/interpreter.c:663
+jl_interpret_toplevel_thunk at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/interpreter.c:821
+jl_toplevel_eval_flex at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/toplevel.c:943
+jl_toplevel_eval_flex at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/toplevel.c:886
+ijl_toplevel_eval_in at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/toplevel.c:994
+eval at ./boot.jl:430 [inlined]
+include_string at ./loading.jl:2734
+_include at ./loading.jl:2794
+include at ./Base.jl:557
+jfptr_include_46812.1 at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/lib/julia/sys.so (unknown line)
+exec_options at ./client.jl:323
+_start at ./client.jl:531
+jfptr__start_73406.1 at /home/ewa/.julia/juliaup/julia-1.11.2+0.x64.linux.gnu/lib/julia/sys.so (unknown line)
+jl_apply at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/julia.h:2157 [inlined]
+true_main at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jlapi.c:900
+jl_repl_entrypoint at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/src/jlapi.c:1059
+main at /cache/build/tester-amdci5-12/julialang/julia-release-1-dot-11/cli/loader_exe.c:58
+unknown function (ip: 0x7460b6e29d8f)
+__libc_start_main at /lib/x86_64-linux-gnu/libc.so.6 (unknown line)
+unknown function (ip: 0x4010b8)
+unknown function (ip: (nil))
+Allocations: 3688073 (Pool: 3687959; Big: 114); GC: 4
+1 4.829e-6 1
+1 3.667e-6 1
+1 5.21e-6 1
+1 4.108e-6 1
+1 3.988e-6 1
+1 3.727e-6 1
+1 5.64e-6 1
+1 3.877e-6 1
+1 4.999e-6 1
+1 3.887e-6 1
+1 5.691e-6 1
+1 4.088e-6 1
+2 6.402e-6 2
+2 5.149e-6 2
+2 5.2e-6 2
+2 5.56e-6 2
+2 5.26e-6 2
+2 4.669e-6 2
+2 5.63e-6 2
+2 5.35e-6 2
+2 5.059e-6 2
+2 5.841e-6 2
+3 9.749e-6 6
+3 7.164e-6 4
+3 7.474e-6 5
+3 8.115e-6 6
+3 1.7363e-5 5
+3 7.775e-6 5
+3 9.698e-6 6
+3 8.927e-6 6
+3 8.747e-6 5
+3 8.045e-6 4
+4 2.4948e-5 14
+4 1.3015e-5 11
+4 1.4988e-5 12
+4 1.5459e-5 13
+4 1.3586e-5 13
+4 1.5951e-5 14
+4 1.3265e-5 10
+4 1.2113e-5 9
+4 1.5469e-5 12
+4 1.5399e-5 11
+5 2.6841e-5 26
+5 3.5788e-5 32
+5 3.5788e-5 34
+5 7.4622e-5 23
+5 1.9868e-5 13
+5 2.2483e-5 21
+5 2.3264e-5 19
+5 2.7171e-5 30
+5 2.4447e-5 22
+5 3.3364e-5 32
+6 6.363e-5 55
+6 5.9362e-5 59
+6 5.265e-5 44
+6 5.2319e-5 32
+6 4.8402e-5 40
+6 5.5435e-5 42
+6 4.9954e-5 50
+6 4.4694e-5 38
+6 6.5574e-5 47
+6 5.0585e-5 41
+7 0.000107663 96
+7 9.4579e-5 83
+7 9.513e-5 83
+7 0.000103185 90
+7 0.000282704 101
+7 0.000274108 128
+7 0.000120888 98
+7 0.000118774 90
+7 0.000149102 125
+7 7.5182e-5 46
+8 0.000158429 114
+8 0.000225526 175
+8 0.000230415 167
+8 0.000203834 164
+8 0.000197042 161
+8 0.000172856 131
+8 0.000202883 147
+8 0.000180631 139
+8 0.000209705 168
+8 0.000171794 139
+9 0.000500895 340
+9 0.000430943 261
+9 0.000411596 270
+1 1.1672e-5 1
+1 5.3e-6 1
+1 4.648e-6 1
+1 4.117e-6 1
+1 5.43e-6 1
+1 4.408e-6 1
+1 5.109e-6 1
+1 4.087e-6 1
+1 4.198e-6 1
+1 3.887e-6 1
+1 4.279e-6 1
+2 7.254e-6 2
+2 5.26e-6 2
+2 4.739e-6 2
+2 4.819e-6 2
+2 7.033e-6 2
+2 5.039e-6 2
+2 5.43e-6 2
+2 4.529e-6 2
+2 5.821e-6 2
+2 5.18e-6 2
+3 1.1151e-5 5
+3 8.386e-6 4
+3 7.624e-6 5
+3 7.885e-6 6
+3 7.284e-6 4
+3 7.494e-6 4
+3 7.454e-6 5
+3 1.1652e-5 5
+3 7.985e-6 5
+3 9.548e-6 4
+4 1.3576e-5 13
+4 1.4478e-5 10
+4 1.4266e-5 15
+4 1.4667e-5 11
+4 1.019e-5 8
+4 1.1862e-5 11
+4 1.3265e-5 10
+4 1.4046e-5 13
+4 1.4117e-5 14
+4 1.3075e-5 10
+5 2.2292e-5 21
+5 2.2272e-5 20
+5 2.6169e-5 22
+5 2.5949e-5 24
+5 3.5046e-5 35
+5 1.7483e-5 13
+5 2.4826e-5 25
+5 2.4776e-5 23
+5 3.2781e-5 31
+5 2.4376e-5 25
+6 5.7197e-5 54
+6 5.4432e-5 45
+6 5.8941e-5 59
+6 4.7911e-5 43
+6 5.5394e-5 45
+6 4.6718e-5 35
+6 6.8018e-5 63
+6 5.5694e-5 52
+6 4.1097e-5 36
+6 5.2849e-5 53
+7 0.000115747 89
+7 0.000109776 81
+7 0.000105528 86
+7 0.000110327 94
+7 0.000108384 100
+7 0.000101651 84
+7 0.000125205 115
+7 8.9729e-5 75
+7 0.000107071 99
+7 0.000110548 94
+8 0.000222108 161
+8 0.000192923 145
+8 0.000184707 135
+8 0.000213732 157
+8 0.000175279 140
+8 0.000248356 189
+8 0.000272492 175
+8 0.000262293 204
+8 0.000249258 177
+8 0.000171743 120
+9 0.000610707 410
+9 0.000469462 302
+9 0.000517051 295
+9 0.000455726 291
+9 0.000390744 234
+9 0.000352622 202
+9 0.000431681 260
+9 0.000383521 231
+9 0.000427032 276
+9 0.000535766 339
+10 0.000715183 413
+10 0.000861919 436
+10 0.000906532 432
+10 0.000888809 493
+10 0.000646354 281
+10 0.000645863 323
+10 0.000827885 447
+10 0.000688313 325
+10 0.000534805 230
+10 0.000642246 312
+11 0.001995076 792
+11 0.001898515 832
+11 0.002057914 707
+11 0.00218898 961
+11 0.001782707 709
+11 0.002137254 903
+11 0.001901921 743
+11 0.001919765 723
+11 0.001916488 858
+11 0.001934733 736
+12 0.003332198 1142
+12 0.00330732 1153
+12 0.003137181 1126
+12 0.003967931 1367
+12 0.002666357 942
+12 0.00350987 1177
+12 0.004485431 1168
+12 0.002709407 973
+12 0.002589797 865
+12 0.003156405 1039
+13 0.007457257 2342
+13 0.010369592 1987
+13 0.004719545 1374
+13 0.00593334 1626
+13 0.007863522 2138
+13 0.007244212 2118
+13 0.008249942 2509
+13 0.00553083 1735
+13 0.007583191 2142
+13 0.007683386 2277
+14 0.017997156 2438
+14 0.015243002 2736
+14 0.01229977 2161
+14 0.013949376 2855
+14 0.014336661 3124
+14 0.013564868 2438
+14 0.012793898 2330
+14 0.014856552 2743
+14 0.012413071 3141
+14 0.011143244 2853
+15 0.026207334 4292
+15 0.021830213 3934
+15 0.025877817 5182
+15 0.030427318 4972
+15 0.023976585 4497
+15 0.019945688 3519
+15 0.027164516 3923
+15 0.027439664 5131
+15 0.024954538 3449
+15 0.026095601 5500
+16 0.043928732 6186
+16 0.058951383 6237
+16 0.055407875 6971
+16 0.044097343 5988
+2 5.824e-6 2
+3 9.192e-6 4
+4 1.4408e-5 8
+2 3.183e-6 2
+3 6.777e-6 5
+4 1.4474e-5 9
